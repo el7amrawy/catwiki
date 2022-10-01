@@ -1,7 +1,7 @@
 const CatType = ({ img, type, className }) => {
   return (
     <div
-      className={`overflow-hidden rounded-xl w-[134px] ${
+      className={`overflow-hidden rounded-xl w-[134px] md:w-[220px] sm:m-1 md:m-2 ${
         className && className
       }`}
     >

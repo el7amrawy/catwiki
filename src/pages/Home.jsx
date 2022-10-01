@@ -1,4 +1,5 @@
 import hero from "../assets/images/HeroImagelg.png";
+import logo from "../assets/CatwikiLogo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
@@ -12,23 +13,34 @@ import cat3 from "../assets/images/image 3.png";
 
 const Home = () => {
   return (
-    <main className=" w-11/12 mx-auto font-montserrat">
-      <section>
+    <main className=" w-11/12 sm:w-4/5 mx-auto font-montserrat">
+      <section className=" mt-7">
         <div className="overflow-hidden text-white rounded-t-[42px] relative">
-          <img className=" w-full  " src={hero} />
-          <h2 className="font-mystery text-sm  absolute top-6 left-6">
+          <img className=" w-full" src={hero} />
+          <h2 className=" sm:hidden font-mystery text-sm  absolute top-6 left-6">
             CatWiki
           </h2>
-          <p className=" text-xs absolute top-6 left-6 w-40 mt-7">
+          <img
+            src={logo}
+            alt="logo"
+            className=" hidden sm:block  absolute top-6 left-6 invert contrast-[150%]"
+          />
+          <p className=" text-xs md:text-2xl absolute top-6 left-6 w-40 md:w-96 mt-7 sm:top-14">
             Get to know more about your cat breed
           </p>
-          <button className=" cursor-pointer py-2 px-4 bg-white text-gray-900 text-xs font-medium absolute left-6 bottom-4 rounded-full">
+          <button className="md:hidden cursor-pointer py-2 px-4 bg-white text-gray-900 text-xs font-medium absolute left-6 bottom-4 sm:bottom-6 rounded-full">
             Search
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
-              className="text-[8px] ml-3"
+              className="text-[8px] ml-3 shadow-sm"
             />
           </button>
+          <input
+            placeholder="Enter your breed"
+            required
+            // focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+            className=" hidden md:block shadow-sm py-5 text-black focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-blue-200  px-6 bg-white  placeholder:text-lg font-medium absolute left-6 bottom-8 rounded-full"
+          />
         </div>
       </section>
       <section className=" bg-[#E3E1DC] px-7 py-5 text-gray-900 font-medium rounded-b-[42px]">
@@ -45,29 +57,32 @@ const Home = () => {
           <CatType img={cat2} type="Norwegian Forest Cat" />
         </div>
       </section>
-      <section className=" mt-7 text-[#291507]">
-        <div className=" w-2/12 h-[3px] bg-black"></div>
-        <div className=" mt-4">
-          <h2 className=" font-bold text-4xl ">Why should you have a cat?</h2>
-          <p className=" font-medium text-lg">
-            Having a cat around you can actually trigger the release of calming
-            chemicals in your body which lower your stress and anxiety leves
+      <section className=" my-12 text-[#291507]">
+        <div className=" mt-4 md:flex  justify-between">
+          <div className="md:w-[45%] md:mt-20">
+            <div className=" w-2/12 h-[3px] bg-black"></div>
+            <h2 className=" font-bold text-4xl ">Why should you have a cat?</h2>
+            <p className=" font-medium text-lg">
+              Having a cat around you can actually trigger the release of
+              calming chemicals in your body which lower your stress and anxiety
+              leves
+            </p>
             <button className=" uppercase pointer text-xs text-gray-500">
               read more
               <FontAwesomeIcon icon={faArrowRightLong} className=" ml-3" />
             </button>
-          </p>
+          </div>
+          <div className="md:w-[50%] flex flex-wrap justify-between my-7 md:mt-0">
+            {/* sm:w-10/12 sm:mx-auto */}
+            <div className=" w-[45%]">
+              <img src={cat2} alt="cat" className=" my-2" />
+              <img src={cat1} alt="cat" className=" my-2 w-3/4 float-right" />
+            </div>
+            <div className=" w-[45%]">
+              <img src={cat3} alt="cat" className=" my-2" />
+            </div>
+          </div>
         </div>
-      </section>
-      <section className=" flex justify-between my-7">
-        <div className=" w-[45%]">
-          <img src={cat2} alt="cat" className=" my-2" />
-          <img src={cat1} alt="cat" className=" my-2 w-3/4 float-right" />
-        </div>
-        <div className=" w-[45%]">
-          <img src={cat3} alt="cat" className=" my-2" />
-        </div>
-        <div></div>
       </section>
     </main>
   );

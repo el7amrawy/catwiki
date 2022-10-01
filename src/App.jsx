@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/*" element={<div>404 not found</div>} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
