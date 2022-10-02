@@ -15,7 +15,7 @@ const CatType = ({ breed, className }) => {
         />
       </div>
       <Link
-        to={breed.name.toLowerCase().split(" ").join("_")}
+        to={"breeds/" + breed.name.toLowerCase().split(" ").join("_")}
         className="block text-xs md:text-lg font-semibold my-3 md:my-5 cursor-pointer"
       >
         {breed.name}
