@@ -35,12 +35,17 @@ const Home = () => {
               className="text-[8px] ml-3 shadow-sm"
             />
           </button>
-          <input
-            placeholder="Enter your breed"
-            required
-            // focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
-            className=" hidden md:block shadow-sm py-5 text-black focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-blue-200  px-6 bg-white  placeholder:text-lg font-medium absolute left-6 bottom-8 rounded-full"
-          />
+          <div className="hidden md:block absloute absolute left-6 bottom-10 text-[#291507]">
+            <input
+              placeholder="Enter your breed"
+              required
+              className=" w-96 shadow-sm py-5 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-blue-200  px-6 bg-white  placeholder:text-lg font-medium  rounded-full"
+            />
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className=" absolute top-6 right-6 text-base"
+            />
+          </div>
         </div>
       </section>
       <section className=" bg-[#E3E1DC] px-7 py-5 text-gray-900 font-medium rounded-b-[42px]">
@@ -67,7 +72,7 @@ const Home = () => {
               calming chemicals in your body which lower your stress and anxiety
               leves
             </p>
-            <button className=" uppercase pointer text-xs text-gray-500">
+            <button className=" uppercase pointer text-xs text-gray-500  transition hover:translate-x-2">
               read more
               <FontAwesomeIcon icon={faArrowRightLong} className=" ml-3" />
             </button>
