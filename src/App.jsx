@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/breeds/:breed" element={<Breed />} />
+        <Route path="/breeds/:breedName" element={<Breed />} />
         <Route path="/*" element={<div>404 not found</div>} />
       </Routes>
       <Footer />

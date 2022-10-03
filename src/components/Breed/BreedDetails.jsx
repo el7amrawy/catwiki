@@ -1,47 +1,41 @@
-import cat from "../../assets/images/image 2.png";
 import BreedStats from "./BreedStats";
 
-const BreedDetails = () => {
+const BreedDetails = ({ breed }) => {
   return (
     <section className=" flex flex-col items-center lg:items-start lg:flex-row justify-around flex-wrap ">
       <div className="w-96 h-96 overflow-hidden rounded-3xl max-w-[90%]">
         <img
-          src={cat}
+          src={breed.img?.url}
           alt="cat image"
           className=" w-full h-full object-cover "
         />
       </div>
       <div className=" w-4/5 lg:w-7/12 text-black mt-7 lg:m-0">
         <div>
-          <h2 className=" text-4xl font-semibold mb-5">Bengal</h2>
-          <p className=" text-lg">
-            Bengals are a lot of fun to live with, but they're definitely not
-            the cat for everyone, or for first-time cat owners. Extremely
-            intelligent, curious and active, they demand a lot of interaction
-            and woe betide the owner who doesn't provide it.
-          </p>
+          <h2 className=" text-4xl font-semibold mb-5">{breed.name}</h2>
+          <p className=" text-lg">{breed.description}</p>
         </div>
         <ul className="">
           <li className=" font-bold capitalize  mt-8">
             Temperament:{" "}
             <span className=" text-lg font-normal normal-case">
-              Alert, Agile, Energetic, Demanding, Intelligent
+              {breed.temperament}
             </span>
           </li>
           <li className=" font-bold capitalize  mt-8">
             origin:{" "}
             <span className=" text-lg font-normal normal-case">
-              United States
+              {breed.origin}
             </span>
           </li>
           <li className=" font-bold capitalize  mt-8">
             life span:{" "}
             <span className=" ca text-lg font-normal normal-case">
-              12 - 15 years
+              {breed.life_span}
             </span>
           </li>
         </ul>
-        <BreedStats />
+        <BreedStats breed={breed} />
       </div>
     </section>
   );

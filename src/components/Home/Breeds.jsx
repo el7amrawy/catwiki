@@ -4,12 +4,12 @@ import apiHost from "../../config";
 import CatType from "./CatType";
 
 const Breeds = () => {
-  /*----------- States -----------*/
+  /*---------------------- States ----------------------*/
 
   const [breeds, setBreeds] = useState([]);
   const [length, setLength] = useState(null);
 
-  /*----------- Effects -----------*/
+  /*---------------------- Effects ----------------------*/
 
   useEffect(() => {
     axios
@@ -32,6 +32,8 @@ const Breeds = () => {
         console.log(err);
       });
   }, [length, breeds]);
+
+  /*--------------------------------------------*/
 
   const breedsElems = breeds.map((elem) => (
     <CatType key={elem.id} breed={elem} />
