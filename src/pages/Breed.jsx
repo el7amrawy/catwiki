@@ -6,10 +6,13 @@ import axios from "axios";
 import apiHost from "../config";
 
 const Breed = () => {
+  /* -------------------- url params -------------------- */
+
+  const { breedName } = useParams();
+
   /* -------------------- States -------------------- */
 
   const [breed, setBreed] = useState({});
-  const { breedName } = useParams();
 
   /* -------------------- Effects -------------------- */
 

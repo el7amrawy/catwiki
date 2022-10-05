@@ -24,7 +24,7 @@ const BreedStats = ({ breed }) => {
   }, [breed]);
 
   return (
-    <div className=" flex justify-between w-10/12">
+    <div className=" flex justify-between md:w-10/12">
       <ul>
         <li className=" font-bold capitalize  mt-8">Adaptability:</li>
         <li className=" font-bold capitalize  mt-8">Affection level:</li>
@@ -75,14 +75,14 @@ function addBars(breed, arr) {
         elems.push(
           <span
             key={nanoid()}
-            className="inline-block w-[4vw] h-2  md:h-3 bg-[#544439] rounded-lg m-1 md:mx-2"
+            className="inline-block w-[3vw] h-2  md:h-3 bg-[#544439] rounded-lg m-1 md:mx-2"
           ></span>
         );
       } else {
         elems.push(
           <span
             key={nanoid()}
-            className="inline-block w-[4vw] h-2  md:h-3 bg-gray-200 rounded-lg m-1 md:mx-2"
+            className="inline-block w-[3vw] h-2  md:h-3 bg-gray-200 rounded-lg m-1 md:mx-2"
           ></span>
         );
       }

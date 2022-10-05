@@ -1,9 +1,12 @@
 import logo from "../assets/CatwikiLogo.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="w-11/12  mx-auto bg-black rounded-t-[42px] text-white overflow-hidden p-9 flex flex-wrap justify-between">
-      <img src={logo} alt="logo" className="invert contrast-[150%] w-20" />
+      <Link to="/">
+        <img src={logo} alt="logo" className="invert contrast-[150%] w-20" />
+      </Link>
       <div className="text-xs flex flex-wrap items-center ">
         <p className=" ">©</p>
         <p className=" ml-1">

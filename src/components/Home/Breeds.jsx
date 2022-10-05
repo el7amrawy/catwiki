@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import apiHost from "../../config";
 import CatType from "./CatType";
+import { Link } from "react-router-dom";
 
 const Breeds = () => {
   /*---------------------- States ----------------------*/
@@ -44,9 +47,17 @@ const Breeds = () => {
       <h4 className=" text-xs py-2 relative after:content-[''] after:inline-block after:bg-black after:absolute after:w-2/12 after:h-[3px] after:bottom-0 after:left-0">
         Most Searched Breeds
       </h4>
-      <h1 className=" font-bold text-lg mt-4">
-        {length}+ Breeds For you to discover
-      </h1>
+      <div className=" mt-4 md:flex justify-between">
+        <h1 className=" font-bold text-lg ">
+          {length}+ Breeds For you to discover
+        </h1>
+        <Link to="/most_shearched">
+          <button className="hidden md:inline-block uppercase pointer text-xs text-gray-500">
+            see more
+            <FontAwesomeIcon icon={faArrowRightLong} className=" ml-3" />
+          </button>
+        </Link>
+      </div>
       <div className=" flex flex-row flex-wrap justify-between mb-8 mt-7 text-[#291507]">
         {breedsElems}
       </div>
