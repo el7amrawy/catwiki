@@ -39,7 +39,7 @@ const Breeds = () => {
   /*--------------------------------------------*/
 
   const breedsElems = breeds.map((elem) => (
-    <CatType key={elem.id} breed={elem} />
+    <CatType key={elem.id} breed={elem} className=" mr-3" />
   ));
 
   return (
@@ -58,7 +58,7 @@ const Breeds = () => {
           </button>
         </Link>
       </div>
-      <div className=" flex flex-row flex-wrap justify-between mb-8 mt-7 text-[#291507]">
+      <div className=" flex  flex-row flex-wrap justify-center sm:justify-between mb-8 mt-7 text-[#291507]">
         {breedsElems}
       </div>
     </section>
