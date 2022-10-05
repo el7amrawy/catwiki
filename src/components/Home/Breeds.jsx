@@ -51,7 +51,7 @@ const Breeds = () => {
         <h1 className=" font-bold text-lg ">
           {length}+ Breeds For you to discover
         </h1>
-        <Link to="/most_shearched">
+        <Link to="/most_shearched" className="transition hover:translate-x-2">
           <button className="hidden md:inline-block uppercase pointer text-xs text-gray-500">
             see more
             <FontAwesomeIcon icon={faArrowRightLong} className=" ml-3" />

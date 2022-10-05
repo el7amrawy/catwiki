@@ -10,7 +10,7 @@ const MostSearched = () => {
           </h1>
           <ul className=" list-none mt-5 ">
             <li className=" md:flex justify-between md:mt-12">
-              <div className=" md:w-44 md:h-44 md:mr-3 overflow-hidden">
+              <div className=" md:w-44 md:h-44 md:mr-3 overflow-hidden object-cover">
                 <img className="w-full h-full" src={tmp_img} alt="cat photo" />
               </div>
               <div className=" mt-5 md:mt-0 md:w-9/12">
