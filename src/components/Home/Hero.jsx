@@ -2,8 +2,69 @@ import hero from "../../assets/images/HeroImagelg.png";
 import logo from "../../assets/CatwikiLogo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import apiHost from "../../config";
+import { Link } from "react-router-dom";
+import search from "../../services/search";
+import { nanoid } from "nanoid";
 
 const Hero = () => {
+  /* -------------------- States -------------------- */
+
+  const [search_string, setSearch_string] = useState("");
+  const [data, setData] = useState([]);
+
+  /* -------------------- Ref -------------------- */
+
+  const search_resRef = useRef(null);
+
+  /* -------------------- Effects -------------------- */
+
+  useEffect(() => {
+    if (!search_string.length) {
+      axios
+        .get(apiHost)
+        .then(({ data }) => {
+          setData(data);
+        })
+        .catch((err) => {
+          console.error(`${err}`);
+        });
+    }
+  }, [search_string]);
+
+  useEffect(() => {
+    if (search_string.length) {
+      search_resRef.current.classList.remove("hidden");
+    } else {
+      search_resRef.current.classList.add("hidden");
+    }
+  }, [search_string]);
+
+  useEffect(() => {
+    if (search_string.length) {
+      const res = search(data, search_string);
+      setData(res);
+    }
+  }, [search_string]);
+
+  /* -------------------- Handlers -------------------- */
+
+  function changeHandler(ev) {
+    setSearch_string(ev.target.value);
+  }
+
+  /* -------------------- Elems -------------------- */
+
+  const searchElems = data.map((elem) => (
+    <li className=" mb-4" key={nanoid()}>
+      <Link to={"breeds/" + elem.name.toLowerCase().split(" ").join("_")}>
+        <span>{elem.name}</span>
+      </Link>
+    </li>
+  ));
+
   return (
     <section className=" mt-7">
       <div className="overflow-hidden text-white rounded-t-[42px] relative">
@@ -30,12 +91,50 @@ const Hero = () => {
               <input
                 placeholder="Enter your breed"
                 required
+                value={search_string}
+                onChange={changeHandler}
                 className=" w-96  shadow-sm py-5 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-blue-200  px-6 bg-white  placeholder:text-lg font-medium  rounded-full"
               />
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 className=" absolute top-6 right-6 text-base"
               />
+              <ul
+                ref={search_resRef}
+                className="scrollbar w-full max-h-60 overflow-y-auto  hidden bg-white text-black font-medium text-lg  mt-4 rounded-3xl shadow p-5"
+              >
+                {searchElems}
+                {/* <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li>
+                <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li>
+                <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li>
+                <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li>
+                <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li>
+                <li className=" mb-4">
+                  <Link to="/">
+                    <span>American Bobtail</span>
+                  </Link>
+                </li> */}
+              </ul>
             </div>
           </div>
         </div>

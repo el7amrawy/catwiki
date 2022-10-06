@@ -10,15 +10,16 @@ const OtherPhotos = ({ breedId }) => {
   /* -------------------- Effects -------------------- */
 
   useEffect(() => {
-    axios
-      .get(apiHost + `/images?id=${breedId}&limit=8`)
-      .then(({ data }) => {
-        // console.log(data);
-        setImages(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (breedId) {
+      axios
+        .get(apiHost + `/images?id=${breedId}&limit=8`)
+        .then(({ data }) => {
+          setImages(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, [breedId]);
 
   /* ---------------------------------------- */
