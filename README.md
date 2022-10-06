@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">CatWiki</h1>
+<h1 align="center">CatWiki (Front-End)</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -20,7 +20,7 @@
       Back-End
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP" target="_blank">
+    <a href="https://devchallenges.io/challenges/f4NJ53rcfgrP6sBMD2jt" target="_blank">
       Challenge
     </a>
   </h3>
