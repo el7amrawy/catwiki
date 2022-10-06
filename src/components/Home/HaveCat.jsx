@@ -16,7 +16,9 @@ const HaveCat = () => {
             chemicals in your body which lower your stress and anxiety leves
           </p>
           <button className=" uppercase pointer text-xs text-gray-500  transition hover:translate-x-2">
-            read more
+            <a href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm">
+              read more
+            </a>
             <FontAwesomeIcon icon={faArrowRightLong} className=" ml-3" />
           </button>
         </div>
