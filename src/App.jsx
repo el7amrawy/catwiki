@@ -7,7 +7,7 @@ import MostSearched from "./pages/MostShearched";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/catwiki">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
