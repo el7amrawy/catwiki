@@ -18,4 +18,8 @@
     width: 20px;
     height: 5px;
   }
+  .stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+  }
 }

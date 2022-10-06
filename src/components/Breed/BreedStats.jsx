@@ -36,30 +36,11 @@ const BreedStats = ({ breed }) => {
         <li className=" font-bold capitalize  mt-8">Stranger friendly:</li>
       </ul>
       <div>
-        <div id="adaptability" className="mt-8">
-          {statElems[0]}
-        </div>
-        <div id="affection_level" className="mt-8">
-          {statElems[1]}
-        </div>
-        <div id="child_friendly" className="mt-8">
-          {statElems[2]}
-        </div>
-        <div id="grooming" className="mt-8">
-          {statElems[3]}
-        </div>
-        <div id="intelligence" className="mt-8">
-          {statElems[4]}
-        </div>
-        <div id="health_issues" className="mt-8">
-          {statElems[5]}
-        </div>
-        <div id="social_needs" className="mt-8">
-          {statElems[6]}
-        </div>
-        <div id="stranger_friendly" className="mt-8">
-          {statElems[7]}
-        </div>
+        {statElems.map((elem) => (
+          <div key={nanoid()} className="mt-8">
+            {elem}
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ const Breeds = () => {
 
   return (
     <section className=" bg-[#E3E1DC] px-7 py-5 text-gray-900 font-medium rounded-b-[42px]">
-      <h4 className=" text-xs py-2 relative after:content-[''] after:inline-block after:bg-black after:absolute after:w-2/12 after:h-[3px] after:bottom-0 after:left-0">
+      <h4 className=" text-xs text-[#4D270C] md:text-lg py-2 relative z-0 after:content-[''] after:inline-block after:bg-black after:absolute after:w-2/12 md:after:w-1/12 after:h-[3px] after:bottom-0 after:left-0">
         Most Searched Breeds
       </h4>
       <div className=" mt-4 md:flex justify-between">

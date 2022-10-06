@@ -8,12 +8,14 @@ import apiHost from "../../config";
 import { Link } from "react-router-dom";
 import search from "../../services/search";
 import { nanoid } from "nanoid";
+import Search_mob from "./Search_mob";
 
 const Hero = () => {
   /* -------------------- States -------------------- */
 
   const [search_string, setSearch_string] = useState("");
   const [data, setData] = useState([]);
+  const [show_search_mob, setShow_search_mob] = useState(false);
 
   /* -------------------- Ref -------------------- */
 
@@ -49,10 +51,22 @@ const Hero = () => {
     }
   }, [search_string]);
 
+  useEffect(() => {
+    if (show_search_mob) {
+      document.documentElement.classList.add("stop-scrolling");
+    } else {
+      document.documentElement.classList.remove("stop-scrolling");
+    }
+  }, [show_search_mob]);
+
   /* -------------------- Handlers -------------------- */
 
   function changeHandler(ev) {
     setSearch_string(ev.target.value);
+  }
+
+  function clickHandler(ev) {
+    setShow_search_mob(true);
   }
 
   /* -------------------- Elems -------------------- */
@@ -67,6 +81,14 @@ const Hero = () => {
 
   return (
     <section className=" mt-7">
+      {show_search_mob && (
+        <Search_mob
+          setShow_search_mob={setShow_search_mob}
+          search_string={search_string}
+          searchElems={searchElems}
+          setSearch_string={setSearch_string}
+        />
+      )}
       <div className="overflow-hidden text-white rounded-t-[42px] relative">
         <img className=" w-full" src={hero} />
         <div className=" absolute top-6 left-6 sm:top-7 sm:left-7 md:top-9 md:left-9 w-full md:h-full">
@@ -80,16 +102,23 @@ const Hero = () => {
             Get to know more about your cat breed
           </p>
           <div className="mt-3 sm:mt-4 md:mt-5">
-            <button className="md:hidden cursor-pointer py-2 px-4 bg-white text-gray-900 text-xs font-medium rounded-full">
-              Search
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                className="text-[8px] ml-3 shadow-sm"
-              />
-            </button>
+            {!show_search_mob && (
+              <div className="md:hidden">
+                <button
+                  onClick={clickHandler}
+                  className=" cursor-pointer py-2 px-4 bg-white text-gray-900 text-xs font-medium rounded-full"
+                >
+                  Search
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className="text-[8px] ml-3 shadow-sm"
+                  />
+                </button>
+              </div>
+            )}
             <div className="hidden md:block text-[#291507] relative  w-[fit-content]">
               <input
-                placeholder="Enter your breed"
+                placeholder="Search your breed"
                 required
                 value={search_string}
                 onChange={changeHandler}
@@ -104,36 +133,6 @@ const Hero = () => {
                 className="scrollbar w-full max-h-60 overflow-y-auto  hidden bg-white text-black font-medium text-lg  mt-4 rounded-3xl shadow p-5"
               >
                 {searchElems}
-                {/* <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li>
-                <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li>
-                <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li>
-                <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li>
-                <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li>
-                <li className=" mb-4">
-                  <Link to="/">
-                    <span>American Bobtail</span>
-                  </Link>
-                </li> */}
               </ul>
             </div>
           </div>
