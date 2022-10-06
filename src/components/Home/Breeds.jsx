@@ -16,7 +16,7 @@ const Breeds = () => {
 
   useEffect(() => {
     axios
-      .get(apiHost + "?limit=4")
+      .get(apiHost + "/rank?limit=4")
       .then(({ data }) => {
         setBreeds(data);
       })

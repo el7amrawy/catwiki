@@ -9,7 +9,7 @@ const CatType = ({ breed, className }) => {
         }`}
       >
         <img
-          src={breed.image.url}
+          src={breed.image?.url}
           alt="cat image"
           className="w-full h-full object-cover transition duration-300 hover:scale-110"
         />

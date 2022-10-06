@@ -1,11 +1,32 @@
+import axios from "axios";
+import { useEffect } from "react";
+import apiHost from "../../config";
 import BreedStats from "./BreedStats";
 
 const BreedDetails = ({ breed }) => {
+  useEffect(() => {
+    if (breed.id?.length) {
+      // console.log(breed);
+      axios
+        .post(apiHost + "/rank?limit=10", {
+          breed,
+        })
+        .then(({ data }) => {
+          if (!data.length) {
+            throw new Error("couldn't update breeds rank");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [breed]);
+
   return (
     <section className=" flex flex-col items-center lg:items-start lg:flex-row justify-around flex-wrap ">
       <div className="w-96 h-96 overflow-hidden rounded-3xl max-w-[90%]">
         <img
-          src={breed.img?.url}
+          src={breed.image?.url}
           alt="cat image"
           className=" w-full h-full object-cover "
         />
