@@ -6,7 +6,6 @@ import BreedStats from "./BreedStats";
 const BreedDetails = ({ breed }) => {
   useEffect(() => {
     if (breed.id?.length) {
-      // console.log(breed);
       axios
         .post(apiHost + "/rank?limit=10", {
           breed,
