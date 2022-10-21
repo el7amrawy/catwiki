@@ -54,9 +54,8 @@ const Hero = () => {
   useEffect(() => {
     if (show_search_mob) {
       document.documentElement.classList.add("stop-scrolling");
-    } else {
-      document.documentElement.classList.remove("stop-scrolling");
     }
+    return () => document.documentElement.classList.remove("stop-scrolling");
   }, [show_search_mob]);
 
   /* -------------------- Handlers -------------------- */
